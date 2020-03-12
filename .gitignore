@@ -8,6 +8,7 @@ secret.txt
 *tmp*
 cmd
 log
-shard*.conf
+mongodbs_one_vm_config/shard*.conf
+mongodbs_one_vm_config/mongos.conf
 __pycache__
 t.sh
