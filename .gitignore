@@ -10,3 +10,4 @@ cmd
 log
 shard*.conf
 __pycache__
+t.sh
