@@ -1,15 +1,14 @@
 # MongoDB Deployment
 ## Deploy MongoDB on One VM
 
-Initialize sever setting
+Initialize sever setting, this is optional.
 
 ```shell
-sudo -i sh -c "/home/lincoln/aifi_mongodb_test/linux_auto_run/initialize.sh"
-tmux
-
+# you should replace the "password" with your perferred password
+sudo -i sh -c "~/deploy_mongodb/initialize.sh" password
 ```
-Run test
-
+Deploy
 ```shell
-sh -c "/home/lincoln/aifi_mongodb_test/linux_auto_run/server_run.sh"
+tmux
+sh -c "~/deploy_mongodb/deploy.sh"
 ```

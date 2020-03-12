@@ -9,3 +9,4 @@ secret.txt
 cmd
 log
 shard*.conf
+__pycache__
