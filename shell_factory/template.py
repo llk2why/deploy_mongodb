@@ -41,17 +41,18 @@ class ShellGenerator(object):
     
     def generate(self):
         mongo_config_server_str = ""
+        for i in range(1,4):
+            if mongo_config_server_str == '':
+                mongo_config_server_str = '127.0.0.1:2710{}'.format(i)
+            else:
+                mongo_config_server_str += ',127.0.0.1:2710{}'.format(i)
+        mongo_config_path = os.path.join(self.config_dir_path,'mongos.conf')
+        with open(mongo_config_path,'w') as f:
+            config = MONGOS_TEMPLATE.format(mongo_config_server_str)
+            f.write(config)
         for i in range(1,self.cpu_num+1):
             config = SHARD_TEMPLATE.format(i)
             config_path = os.path.join(self.config_dir_path,'shard{}.conf'.format(i))
             with open(config_path,'w') as f:
                 f.write(config)
-            if mongo_config_server_str == '':
-                mongo_config_server_str = '127.0.0.1:2702{}'.format(i)
-            else:
-                mongo_config_server_str += ',127.0.0.1:2702{}'.format(i)
-        mongo_config_path = os.path.join(self.config_dir_path,'mongos.conf')
-        with open(mongo_config_path,'w') as f:
-            config = MONGOS_TEMPLATE.format(mongo_config_server_str)
-            f.write(config)
         print('[PYTHON] generated {0} sharding config files and 1 mongos config file,since there are {0} CPUs.'.format(self.cpu_num))
