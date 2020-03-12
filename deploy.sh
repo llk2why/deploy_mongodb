@@ -32,7 +32,7 @@ sudo chmod 775 /home/mongod -R
 sudo ufw default deny incoming
 sudo ufw allow ssh
 sudo ufw allow from 127.0.0.1
-sudo ufw enable
+echo "y" | sudo ufw enable
 
 sudo chown `whoami` /home/mongod -R
 sudo chmod 775 /home/mongod -R
