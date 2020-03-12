@@ -8,4 +8,4 @@ then
 else
     echo empty
 fi
-sudo rm -rf /home/mongod
+rm -rf /home/mongod
