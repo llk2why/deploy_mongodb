@@ -1,0 +1,11 @@
+*.pyc
+*.jpg
+*data
+*.json
+*.zip
+*.DS_Store
+secret.txt
+*tmp*
+cmd
+log
+shard*.conf
