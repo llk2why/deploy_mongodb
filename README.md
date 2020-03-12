@@ -17,5 +17,6 @@ sh -c "~/deploy_mongodb/deploy.sh"
 
 DO NOT RUN THIS COMMAND CASUALLY
 ```shell
-sh -c "~/deploy_mongodb/delete_all_mongo.sh"
+sh -c "~/deploy_mongodb/clear_all.sh"
+sh -c "~/deploy_mongodb/clear_all.sh"
 ```
