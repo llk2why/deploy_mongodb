@@ -9,9 +9,13 @@ sudo apt install -y python3-opencv
 sudo apt install -y sysstat 
 pip3 install pymongo
 
-curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.2.3.tgz
-tar -zxvf mongodb-linux-x86_64-ubuntu1804-4.2.3.tgz
-sudo mv mongodb-linux-x86_64-ubuntu1804-4.2.3/bin/* /usr/local/bin/
+if [ ! -f ~/mongodb-linux-x86_64-ubuntu1804-4.2.3.tgz ]; then
+    cd ~
+    curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.2.3.tgz
+    tar -zxvf mongodb-linux-x86_64-ubuntu1804-4.2.3.tgz
+    sudo mv mongodb-linux-x86_64-ubuntu1804-4.2.3/bin/* /usr/local/bin/
+fi
+
 
 cpu_num=$(grep 'processor' /proc/cpuinfo | sort -u | wc -l)
 repo_name="deploy_mongodb"
