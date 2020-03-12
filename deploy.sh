@@ -59,5 +59,8 @@ do
     mongo --port 27017 --eval 'db.runCommand({"addShard":"127.0.0.1:2702'$i'","maxsize":0,"name":"shard'$i'"})' admin
 done
 
+mongo --eval 'db.fs.chunks.createIndex({files_id:1,n:1})' images
+mongo --eval 'sh.enableSharding("images")'
+mongo --eval 'db.runCommand({shardCollection:"images.fs.chunks",key:{files_id:1,n:1}})' admin
 
 
