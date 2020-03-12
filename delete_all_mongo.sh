@@ -8,6 +8,6 @@
 # else
 #     echo empty
 # fi
-kill $(ps aux | grep mongo | grep -v "grep" | awk '{print $2}')
-echo "test"
-rm -rf /home/mongod
+sudo pkill -f mongos
+sudo pkill -f mongod
+sudo rm -rf /home/mongod
