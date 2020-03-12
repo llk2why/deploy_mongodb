@@ -10,4 +10,6 @@
 # fi
 sudo pkill -f mongos
 sudo pkill -f mongod
+echo "killed all mongod/mongos instances"
 sudo rm -rf /home/mongod
+echo "removed all mongodb data"
