@@ -9,7 +9,7 @@ Initialize server setting, this is OPTIONAL.
 
 ```shell
 # you should replace the "password" with your perferred password
-sudo -i sh -c "$(env | grep ^HOME= | cut -c 6-)/deploy_mongodb/initialize.sh password $(whoami)"
+sudo -i sh -c "$(env | grep ^HOME= | cut -c 6-)/deploy_mongodb/initialize.sh 0130 $(whoami)"
 ```
 ## Deploy
 
