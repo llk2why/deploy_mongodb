@@ -3,7 +3,7 @@
 
 git clone https://github.com/llk2why/deploy_mongodb.git
 
-Initialize sever setting, this is optional.
+Initialize sever setting, this is OPTIONAL.
 
 ```shell
 # you should replace the "password" with your perferred password
