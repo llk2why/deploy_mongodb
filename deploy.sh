@@ -13,7 +13,7 @@ curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.2.3.t
 tar -zxvf mongodb-linux-x86_64-ubuntu1804-4.2.3.tgz
 sudo mv mongodb-linux-x86_64-ubuntu1804-4.2.3/bin/* /usr/local/bin/
 
-cpu_num=$(grep 'core id' /proc/cpuinfo | sort -u | wc -l)
+cpu_num=$(grep 'processor' /proc/cpuinfo | sort -u | wc -l)
 repo_name="deploy_mongodb"
 
 for((i=1;i<=3;i++))
