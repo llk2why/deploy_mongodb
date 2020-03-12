@@ -43,7 +43,7 @@ do
     mongod -f ~/$repo_name/mongodbs_one_vm_config/conf_server$i.conf
 done
 
-mongo --port 27101 --eval 'rs.initiate({_id:"config",configsvr:true,members:[{_id:0,host:"127.0.0.1:27101"},{_id:1,host:"127.0.0.1:27102"},{_id:2,host:"127.0.0.1:27103"}]})'
+mongo --port 27101 --eval --quiet 'rs.initiate({_id:"config",configsvr:true,members:[{_id:0,host:"127.0.0.1:27101"},{_id:1,host:"127.0.0.1:27102"},{_id:2,host:"127.0.0.1:27103"}]})'
 
 cd ~/$repo_name
 python3 -m shell_factory $cpu_num
@@ -56,9 +56,8 @@ mongos -f ~/$repo_name/mongodbs_one_vm_config/mongos.conf
 
 for((i=1;i<=$cpu_num;i++))
 do
-    mongo --port 27017 --eval 'db.runCommand({"addShard":"127.0.0.1:2702'$i'","maxsize":0,"name":"shard'$i'"})' admin
+    mongo --port 27017 --eval --quiet 'db.runCommand({"addShard":"127.0.0.1:2702'$i'","maxsize":0,"name":"shard'$i'"})' admin
 done
 
 
-mongo --port 27017 --eval 'sh.enableSharding("test")' admin
-mongo --port 27017 --eval 'sh.shardCollection("test.t",{id:"hashed"})' admin
+
