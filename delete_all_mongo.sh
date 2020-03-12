@@ -8,4 +8,5 @@ then
 else
     echo empty
 fi
+echo "test"
 rm -rf /home/mongod
