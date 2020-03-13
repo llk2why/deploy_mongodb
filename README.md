@@ -15,8 +15,9 @@ sudo -i sh -c "$(env | grep ^HOME= | cut -c 6-)/deploy_mongodb/initialize.sh 013
 
 ### Deploy Single Instance
 
-```
-
+```shell
+tmux
+sh -c "~/deploy_mongodb/deploy_single.sh"
 ```
 
 ### Deploy Sharding
