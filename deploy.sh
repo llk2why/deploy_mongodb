@@ -67,4 +67,8 @@ mongo --eval 'db.fs.chunks.createIndex({files_id:1,n:1})' images
 mongo --eval 'sh.enableSharding("images")'
 mongo --eval 'db.runCommand({shardCollection:"images.fs.chunks",key:{files_id:1,n:1}})' admin
 
+mongo --eval 'sh.enableSharding("bson_images")'
+mongo --eval 'db.runCommand({shardCollection:"bson_images.img",key:{name:1}})' admin
+
+
 

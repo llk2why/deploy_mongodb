@@ -13,6 +13,14 @@ sudo -i sh -c "$(env | grep ^HOME= | cut -c 6-)/deploy_mongodb/initialize.sh 013
 ```
 ## Deploy
 
+### Deploy Single Instance
+
+```
+
+```
+
+### Deploy Sharding
+
 ```shell
 tmux
 sh -c "~/deploy_mongodb/deploy.sh"
@@ -24,7 +32,16 @@ sh -c "~/deploy_mongodb/deploy.sh"
 # e.g. 
 mongo --eval 'db.fs.chunks.createIndex({files_id:1,n:1})' images
 mongo --eval 'sh.enableSharding("images")'
-mongo --eval 'db.runCommand({shardCollection:"images.fs.chunks",key:{files_id:1,n:1}})' admin
+mongo --eval 'db.runCommand({shardCollection:"images.fs.chunks",key:{files_id:1,n:1}})' 
+
+mongo --port --eval 27021 'show dbs'
+mongo --port --eval 27022 'show dbs'
+mongo --port --eval 27023 'show dbs'
+mongo --port --eval 27024 'show dbs'
+mongo --port --eval 27025 'show dbs'
+mongo --port --eval 27026 'show dbs'
+mongo --port --eval 27027 'show dbs'
+mongo --port --eval 27028 'show dbs'
 ```
 
 ## CLEAN
